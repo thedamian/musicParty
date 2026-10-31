@@ -1,0 +1,23 @@
+# /etc/systemd/system/music-party.service  (alternative to pm2)
+# Settings come from /opt/music-party/.env, which the app loads itself.
+[Unit]
+Description=Music Party jukebox
+After=network.target
+
+[Service]
+Type=simple
+User=musicparty
+WorkingDirectory=/opt/music-party
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node dist/server.js
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+# The queue and play history are written here.
+ReadWritePaths=/opt/music-party/data
+
+[Install]
+WantedBy=multi-user.target

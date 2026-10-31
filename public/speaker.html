@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#120a24" />
+    <title>Music Party · Speaker</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="speaker">
+    <div class="speaker-layout">
+      <section class="stage">
+        <div class="player-wrap">
+          <div id="player"></div>
+          <div id="cover" class="cover show">
+            <img id="cover-art" class="cover-art" alt="" hidden />
+            <img id="cover-qr" class="cover-qr" src="/qr.svg" alt="QR code to add songs" hidden />
+            <p id="cover-text" class="cover-text">Loading…</p>
+            <button id="tap-play" class="big" type="button" hidden>▶ Tap to play</button>
+            <button id="retry" class="big" type="button" hidden>↻ Try again</button>
+          </div>
+        </div>
+
+        <div class="now-info">
+          <h2 id="np-title">Nothing playing</h2>
+          <p id="np-channel" class="muted"></p>
+          <div class="progress"><div id="np-bar" class="bar"></div></div>
+          <div class="times"><span id="np-pos"></span><span id="np-dur"></span></div>
+        </div>
+
+        <div class="controls">
+          <button id="pause" type="button" disabled>▶ Play</button>
+          <button id="skip" type="button" disabled>⏭ Skip</button>
+        </div>
+      </section>
+
+      <aside class="side">
+        <div class="join card">
+          <img src="/qr.svg" alt="QR code to add songs" />
+          <p>Add songs at<br /><strong class="join-url"></strong></p>
+        </div>
+        <div class="section-head">
+          <h2>Up next <span id="queue-count" class="count"></span></h2>
+        </div>
+        <ul id="queue" class="list"></ul>
+        <p id="queue-empty" class="empty">Nothing waiting.</p>
+      </aside>
+    </div>
+
+    <div id="start" class="start-screen">
+      <h1>🎉 Music Party</h1>
+      <p>This phone is the speaker. Connect it to the big speaker, plug in the charger and keep this page open.</p>
+      <button id="start-btn" class="big" type="button">▶ Start the party</button>
+      <p class="muted">Guests add songs at <strong class="join-url"></strong></p>
+    </div>
+
+    <div id="conn" class="conn" hidden>Reconnecting to the server…</div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/js/speaker.js"></script>
+  </body>
+</html>

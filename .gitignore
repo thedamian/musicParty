@@ -1,0 +1,8 @@
+node_modules/
+dist/
+public/js/
+data/
+.env
+.env.*
+!.env.example
+*.log

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#120a24" />
+    <title>Music Party</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="guest">
+    <header class="top">
+      <h1>🎉 Music Party</h1>
+      <span id="status" class="pill warn">Connecting…</span>
+    </header>
+
+    <main>
+      <section id="now" class="card now" aria-live="polite">
+        <p class="empty">Loading…</p>
+      </section>
+
+      <form id="search-form" class="search" role="search">
+        <input
+          id="q"
+          type="search"
+          placeholder="Search for a song or artist"
+          autocomplete="off"
+          enterkeyhint="search"
+          maxlength="100"
+          aria-label="Search for a song"
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <section id="results-wrap" hidden>
+        <div class="section-head">
+          <h2>Results</h2>
+          <button id="clear-results" class="link" type="button">Clear</button>
+        </div>
+        <ul id="results" class="list"></ul>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Up next</h2>
+          <span id="mine-count" class="muted"></span>
+        </div>
+        <ul id="queue" class="list"></ul>
+        <p id="queue-empty" class="empty">Nothing waiting. Add a song!</p>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/js/guest.js"></script>
+  </body>
+</html>

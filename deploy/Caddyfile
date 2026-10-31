@@ -1,0 +1,6 @@
+# Add to /etc/caddy/Caddyfile (then: sudo systemctl reload caddy).
+# Caddy handles HTTPS and proxies the WebSocket (/ws) automatically.
+music.bocajs.org {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:5004
+}
